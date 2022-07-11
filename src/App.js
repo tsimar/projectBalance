@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+// import { useState } from "react";
+import "./App.css";
+import { Dochody } from "./component/content/AddContent";
+import { InMoneyList } from "./component/list/InMoneyList";
+import { OutMoneyList } from "./component/list/OutMoneyList";
+import { Navbar } from "./component/navbar/Navbar";
+import { useSelector } from "react-redux";
+
+import "./style/style.css";
 
 function App() {
+  const totalInMoney = useSelector((state) => state.totalIn.todos);
+  const totalOutMoney = useSelector((state) => state.totalOut.todos);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="size-body">
+      <Navbar />
+      <hr className="nav-hr" />
+      <div className="entries-wrapper">
+        <section className="section_in-money ">
+          <Dochody titleName="DOCHODY" />
+          <hr />
+          <div className="footer-in">
+            <p>
+              &Sigma; przychodów{" "}
+              <span className="total-in"> {totalInMoney}</span> zł
+            </p>
+          </div>
+          <InMoneyList />
+        </section>
+        <section className="section_out-money">
+          <Dochody titleName="WYDATKI" />
+          <hr />
+          <div className="footer-out">
+            <p>
+              &Sigma; wydatków{" "}
+              <span className="total-out"> {totalOutMoney}</span> zł
+            </p>
+          </div>
+          <OutMoneyList />
+        </section>
+      </div>
     </div>
   );
 }
