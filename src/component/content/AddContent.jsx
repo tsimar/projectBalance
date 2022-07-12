@@ -6,15 +6,17 @@ import { addInMoney } from "../../slice/items/inMoneySlice";
 import { addOutMoney } from "../../slice/items/outMoneySlice";
 import { incrementIn } from "../../slice/contentTotal/totalinMoneySlice";
 import { incrementOut } from "../../slice/contentTotal/totalOutMoneySlice";
+import { strings } from "../../strings/strings";
 
-export const Dochody = ({ titleName }) => {
+export const AddListItem = ({ titleName }) => {
   const dispatch = useDispatch();
   const [inMoney, setInMoney] = useState("");
   const [inNameMoney, setInNameMoney] = useState("");
 
   const handleSubmitInMoney = (e) => {
     e.preventDefault();
-    if (inMoney && titleName === "DOCHODY") {
+
+    if (inMoney && titleName === strings.dochody) {
       dispatch(
         addInMoney({ title: inNameMoney, content: inMoney, idMoney: titleName })
       );

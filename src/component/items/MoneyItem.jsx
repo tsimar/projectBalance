@@ -18,6 +18,7 @@ import {
 import { decrementDelete } from "../../slice/allMoneySplice";
 import { EditList } from "./EditItem";
 import { AddListItem } from "./AddListItem";
+import { strings } from "../../strings/strings";
 
 const MoneyItem = ({ item }) => {
   const [editValue, setEditValue] = useState({
@@ -30,7 +31,7 @@ const MoneyItem = ({ item }) => {
   const [editId, setEditId] = useState(0);
 
   const handleDeleteClick = (item) => {
-    if (item.idMoney === "DOCHODY") {
+    if (item.idMoney === strings.dochody) {
       dispatch(decrementIn(item.content));
       dispatch(removeInMoney({ id: item.id }));
     } else {
@@ -42,7 +43,7 @@ const MoneyItem = ({ item }) => {
 
   const handleEditFormChange = (e) => {
     e.preventDefault();
-    const tagName = e.target.getAttribute("name");
+    const tagName = e.target.name;
     const tagValue = e.target.value;
     const newFormData = { ...editValue };
     newFormData[tagName] = tagValue;
@@ -61,7 +62,7 @@ const MoneyItem = ({ item }) => {
       title: item.title,
       content: item.content,
     };
-    if (item.idMoney === "DOCHODY") {
+    if (item.idMoney === strings.dochody) {
       dispatch(decrementIn(parseFloat(item.content)));
     } else {
       dispatch(decrementOut(parseFloat(item.content)));
@@ -72,7 +73,7 @@ const MoneyItem = ({ item }) => {
 
   const handleEditFormSubmit = (e) => {
     e.preventDefault();
-    if (item.idMoney === "DOCHODY") {
+    if (item.idMoney === strings.dochody) {
       dispatch(
         updateInMoney({
           content: editValue.content,

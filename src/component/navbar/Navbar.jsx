@@ -6,7 +6,7 @@ export const Navbar = () => {
   const totalInMoney = useSelector((state) => state.totalIn.todos);
   const totalOutMoney = useSelector((state) => state.totalOut.todos);
 
-  let balance = totalInMoney - totalOutMoney;
+  const balance = totalInMoney - totalOutMoney;
 
   return (
     <>
