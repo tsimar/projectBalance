@@ -28,8 +28,8 @@ export const EditList = ({
       ></input>
       <button className="btn-save btn-all" name="save" type="submit"></button>
       <button
-        className="btn-del btn-all"
-        name="delete"
+        className="btn-cancel btn-all"
+        name="cancel"
         onClick={handleCancelClick}
       ></button>
     </form>

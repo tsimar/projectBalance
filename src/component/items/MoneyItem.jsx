@@ -25,8 +25,14 @@ const MoneyItem = ({ item }) => {
     editId: "",
     title: "",
     content: "",
+    idMoney: "",
   });
-
+  const [oldValue, setOldValue] = useState({
+    editId: "",
+    title: "",
+    content: "",
+    idMoney: "",
+  });
   const dispatch = useDispatch();
   const [editId, setEditId] = useState(0);
 
@@ -50,7 +56,13 @@ const MoneyItem = ({ item }) => {
     setEditValue(newFormData);
   };
 
-  const handleCancelClick = () => {
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    if (item.idMoney === strings.dochody) {
+      dispatch(incrementIn(parseFloat(oldValue.content)));
+    } else {
+      dispatch(incrementOut(parseFloat(oldValue.content)));
+    }
     setEditId("");
   };
 
@@ -61,6 +73,7 @@ const MoneyItem = ({ item }) => {
       editId: item.id,
       title: item.title,
       content: item.content,
+      idMoney: item.idMoney,
     };
     if (item.idMoney === strings.dochody) {
       dispatch(decrementIn(parseFloat(item.content)));
@@ -69,6 +82,7 @@ const MoneyItem = ({ item }) => {
     }
 
     setEditValue(formValues);
+    setOldValue(formValues);
   };
 
   const handleEditFormSubmit = (e) => {

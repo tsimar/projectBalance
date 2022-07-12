@@ -153,7 +153,9 @@ input {
 .btn-del {
   background: url("../img/trash.png") no-repeat;
 }
-
+.btn-cancel {
+  background: url("../img/cancel.png") no-repeat;
+}
 .btn-all{
   width: 25px;
   height: 25px;
