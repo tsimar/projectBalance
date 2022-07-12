@@ -20,12 +20,12 @@ export const outMoneySlice = createSlice({
       state.todos = state.todos.filter((item) => item.id !== id);
     },
     updateOutMoney: (state, action) => {
-      state.todos.map((item) => {
-        if (item.id === action.payload.id) {
-          item.title = action.payload.title;
-          item.content = action.payload.content;
-        }
-      });
+     state.todos.forEach((item) => {
+       if (item.id === action.payload.id) {
+         item.title = action.payload.title;
+         item.content = action.payload.content;
+       }
+     });
     },
   },
 });

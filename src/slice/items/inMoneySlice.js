@@ -20,7 +20,7 @@ export const inMoneySlice = createSlice({
       state.todos = state.todos.filter((item) => item.id !== id);
     },
     updateInMoney: (state, action) => {
-      state.todos.map((item) => {
+      state.todos.forEach((item) => {
         if (item.id === action.payload.id) {
           item.title = action.payload.title;
           item.content = action.payload.content;
