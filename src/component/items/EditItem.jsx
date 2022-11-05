@@ -21,7 +21,7 @@ export const EditList = ({
         name="content"
         type="number"
         min="1"
-        step="0.1"
+        step="0.01"
         required
         value={editValue.content}
         onChange={handleEditFormChange}

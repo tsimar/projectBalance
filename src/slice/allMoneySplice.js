@@ -9,7 +9,7 @@ export const allMoneySlice = createSlice({
   initialState,
   reducers: {
     decrementDelete: (state, action) => {
-      const money = parseFloat(action.payload);
+      const money = parseFloat(action.payload, 2);
       if (state.itemDelete < 0) {
         state.itemDelete += money;
       } else {

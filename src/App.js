@@ -22,7 +22,7 @@ function App() {
           <hr />
           <div className="footer-in">
             <p>
-              &Sigma; przychodów{" "}
+              &Sigma; przychodów
               <span className="total-in"> {totalInMoney}</span> zł
             </p>
           </div>
@@ -33,7 +33,7 @@ function App() {
           <hr />
           <div className="footer-out">
             <p>
-              &Sigma; wydatków{" "}
+              &Sigma; wydatków
               <span className="total-out"> {totalOutMoney}</span> zł
             </p>
           </div>

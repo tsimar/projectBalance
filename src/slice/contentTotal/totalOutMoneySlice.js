@@ -9,10 +9,12 @@ export const totalOutMoneySlice = createSlice({
   initialState,
   reducers: {
     incrementOut: (state, action) => {
-      state.todos += action.payload;
+      const money = parseFloat(action.payload, 2);
+      state.todos += money;
     },
     decrementOut: (state, action) => {
-      state.todos -= action.payload;
+      const money = parseFloat(action.payload, 2);
+      state.todos -= money;
     },
   },
 });

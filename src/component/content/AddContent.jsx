@@ -20,7 +20,7 @@ export const AddListItem = ({ titleName }) => {
       dispatch(
         addInMoney({ title: inNameMoney, content: inMoney, idMoney: titleName })
       );
-      dispatch(incrementIn(parseFloat(inMoney)));
+      dispatch(incrementIn(parseFloat(inMoney).toFixed(2)));
     } else {
       dispatch(
         addOutMoney({
@@ -29,7 +29,7 @@ export const AddListItem = ({ titleName }) => {
           idMoney: titleName,
         })
       );
-      dispatch(incrementOut(parseFloat(inMoney)));
+      dispatch(incrementOut(parseFloat(inMoney).toFixed(2)));
     }
 
     setInMoney("");
@@ -53,7 +53,7 @@ export const AddListItem = ({ titleName }) => {
         className="inp-money"
         type="number"
         min="1"
-        step="0.1"
+        step="0.01"
         name="money-in"
         placeholder="0.00 zl"
         required

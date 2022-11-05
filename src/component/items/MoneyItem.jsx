@@ -59,9 +59,9 @@ const MoneyItem = ({ item }) => {
   const handleCancelClick = (e) => {
     e.preventDefault();
     if (item.idMoney === strings.dochody) {
-      dispatch(incrementIn(parseFloat(oldValue.content)));
+      dispatch(incrementIn(parseFloat(oldValue.content, 2)));
     } else {
-      dispatch(incrementOut(parseFloat(oldValue.content)));
+      dispatch(incrementOut(parseFloat(oldValue.content, 2)));
     }
     setEditId("");
   };
@@ -76,9 +76,10 @@ const MoneyItem = ({ item }) => {
       idMoney: item.idMoney,
     };
     if (item.idMoney === strings.dochody) {
-      dispatch(decrementIn(parseFloat(item.content)));
+      console.log(parseFloat(item.content, 2));
+      dispatch(decrementIn(parseFloat(item.content, 2)));
     } else {
-      dispatch(decrementOut(parseFloat(item.content)));
+      dispatch(decrementOut(parseFloat(item.content, 2)));
     }
 
     setEditValue(formValues);
@@ -95,7 +96,7 @@ const MoneyItem = ({ item }) => {
           id: editValue.editId,
         })
       );
-      dispatch(incrementIn(parseFloat(editValue.content)));
+      dispatch(incrementIn(parseFloat(editValue.content,2)));
     } else {
       dispatch(
         updateOutMoney({
@@ -104,7 +105,7 @@ const MoneyItem = ({ item }) => {
           id: editValue.editId,
         })
       );
-      dispatch(incrementOut(parseFloat(editValue.content)));
+      dispatch(incrementOut(parseFloat(editValue.content,2)));
     }
 
     setEditId("");

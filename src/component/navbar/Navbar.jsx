@@ -6,8 +6,9 @@ export const Navbar = () => {
   const totalInMoney = useSelector((state) => state.totalIn.todos);
   const totalOutMoney = useSelector((state) => state.totalOut.todos);
 
-  const balance = totalInMoney - totalOutMoney;
-
+  let balance = parseFloat(totalInMoney, 2) - parseFloat(totalOutMoney, 2);
+  balance = parseFloat(balance, 2);
+  
   return (
     <>
       <div className="logotype ">
